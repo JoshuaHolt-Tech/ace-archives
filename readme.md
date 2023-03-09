@@ -67,10 +67,10 @@ Our team has set out to learn the NLP pipeline while keeping our interest in min
     - Drop NULLS
 
 - **Dropped**
-     - We created a feature called `Others` which was a collection of less frequent programming languages. We dropped this.(Hurting the Model)
+     - We created a feature called `Others` which was a collection of less frequent programming languages. We dropped this.(Helping the Model)
      
 - **NLP**
-     - Cleaned, Tokenized, Stemmed, Lemmed to get ready for exploring and modeling
+     - Cleaned, Tokenized, Stemmed to get ready for exploring and modeling
     - select stopwords 
    ( blackjack, java, cards, split, ace
 variables, conditional , statements, loops, functions, object, oriented programming, syntax, comments, libraries, frameworks)
@@ -126,9 +126,10 @@ n-alphanumeric characters.
 
 
 :electron: # Next Steps
-*  This model took about 380 repo's, more data wouldn't hurt.
+* This model took about 380 repo's, more data wouldn't hurt.
 * Our "Other" category was a catch-all for the least popular languages. Our model was not successful in this area, why?
 * We should explore n-grams, as this may benefit the model
+* Explore why Ruby was the majority language and try other filter criteria besides "most forked."
 
 
 To Reproduce:
@@ -140,16 +141,3 @@ Note: You do not need select any scopes, i.e. leave all the checkboxes unchecked
 5. Ensure you have adequate time and an uninterrupted internet connection for approximately 30 minutes (during the first run.)
 6. Run the final_notebook.ipynb.
 Note: NLTK may require subsequent downloads listed in error messages.
-
-Acquire list of urls:
-We acquired a list of GitHub repositories using BeautifulSoup web scraping package. We entered the word "blackjack" in the search function on the GitHub website and sorted by "Most forks". 
-
-Acquire ReadMe of repositories:
-We passed the list of repositories to a function that acquired the primary programming language and text from the ReadMe.
-
-Prepare the data:
-During the preparation process we dropped entries with null values. Then we combined all the C programming languages. We kept the top five languages and renamed all the other languages to "other." We cleaned the text by removing non-alphanumeric characters.
-
-Modeling: 
-During the modeling process we dropped the Other programming languages to improve performance. We attempted to use the Logistic Regression, Random Forest and Decision Tree models. Our Decision Tree performed the best at 76%. Our baseline of 62% was determined by picking the language which occurred the most often, Ruby.
-
